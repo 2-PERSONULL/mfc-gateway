@@ -29,7 +29,7 @@ public class ErrorResponse implements ErrorWebExceptionHandler {
 			baseResponse = new BaseResponse<>(e.getStatus());
 			response.setStatusCode(baseResponse.httpStatus());
 		} else {
-			baseResponse = new BaseResponse<>(BaseResponseStatus.INTERNAL_SERVER_ERROR);
+			baseResponse = new BaseResponse<>(BaseResponseStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
 			response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 

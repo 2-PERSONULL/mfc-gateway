@@ -13,4 +13,9 @@ public record BaseResponse<T>(HttpStatusCode httpStatus, Boolean isSuccess, Stri
 	public BaseResponse(BaseResponseStatus status) {
 		this(status.getHttpStatusCode(), false, status.getMessage(), status.getCode(), null);
 	}
+
+	// 요청 실패한 경우
+	public BaseResponse(BaseResponseStatus status, T result) {
+		this(status.getHttpStatusCode(), false, status.getMessage(), status.getCode(), result);
+	}
 }
